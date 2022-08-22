@@ -1,4 +1,6 @@
-# Installing Docker
+# Day 1 - Docker
+
+## Installing Docker
 
 For detailed instructions, please refer https://docs.docker.com/engine/install/centos/
 
