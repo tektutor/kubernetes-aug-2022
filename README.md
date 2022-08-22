@@ -424,3 +424,26 @@ uid=1000(jegan) gid=981(docker) groups=981(docker),1000(jegan) context=unconfine
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 </pre>
 
+
+# Docker Commands
+
+## Listing docker images from your local docker registry
+```
+docker images
+```
+
+## Downloading docker image from Docker Hub to Local registry
+```
+docker pull hello-world:latest
+```
+
+## Creating conainer from docker image
+```
+docker run hello-world:latest
+```
+
+## Listing running containers
+```
+docker ps
+```
+
