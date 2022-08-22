@@ -191,8 +191,6 @@ Expected output
 <pre>
 [jegan@tektutor ~]$ docker --version
 bash: docker: command not found...
-[jegan@tektutor ~]$ kubectl
-bash: kubectl: command not found...
 [jegan@tektutor ~]$ sudo yum install -y yum-utils
 [sudo] password for jegan: 
 Loaded plugins: fastestmirror, langpacks
