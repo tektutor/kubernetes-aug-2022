@@ -501,6 +501,21 @@ Server:
 ```
 docker images
 ```
+Expected output
+<pre>
+jegan@tektutor ~]$ <b>docker images</b>
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+[jegan@tektutor ~]$ <b>docker pull hello-world:latest</b>
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete 
+Digest: sha256:7d246653d0511db2a6b2e0436cfd0e52ac8c066000264b3ce63331ac66dca625
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+[jegan@tektutor ~]$ <b>docker images</b>
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    feb5d9fea6a5   11 months ago   13.3kB
+</pre>
+
 
 ## Downloading docker image from Docker Hub to Local registry
 ```
