@@ -342,3 +342,14 @@ Expected output
 [jegan@tektutor ~]$ <b>docker --version</b>
 Docker version 20.10.17, build 100c701
 </pre>
+
+## Issuing docker commands
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker images</b>
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+</pre>
