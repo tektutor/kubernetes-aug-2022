@@ -1045,3 +1045,23 @@ PING 192.168.1.80 (192.168.1.80) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.476/0.553/0.599/0.048 ms
 root@ubuntu1:/# 
 </pre>
+
+## Stopping a running container
+```
+docker stop <your-container-name>
+docker stop <your-container-id>
+```
+
+Expected output
+<pre>
+jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE          COMMAND       CREATED             STATUS             PORTS     NAMES
+33474534ad7c   ubuntu:16.04   "/bin/bash"   About an hour ago   Up About an hour             ubuntu2
+a26ad7017979   ubuntu:16.04   "/bin/bash"   2 hours ago         Up 2 hours                   ubuntu1
+[jegan@tektutor ~]$ docker stop ubuntu1
+ubuntu1
+[jegan@tektutor ~]$ docker stop 33474534ad7c
+33474534ad7c
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+</pre>
