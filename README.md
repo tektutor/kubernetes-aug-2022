@@ -415,18 +415,18 @@ docker images
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker images
+[jegan@tektutor ~]$ <b>docker images</b>
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
-[jegan@tektutor ~]$ id
+[jegan@tektutor ~]$ <b>id</b>
 uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
-[jegan@tektutor ~]$ sudo usermod -aG docker jegan
+[jegan@tektutor ~]$ <b>sudo usermod -aG docker jegan</b>
 [sudo] password for jegan: 
-[jegan@tektutor ~]$ id
+[jegan@tektutor ~]$ <b>id</b>
 uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
-[jegan@tektutor ~]$ newgrp docker
-[jegan@tektutor ~]$ id
+[jegan@tektutor ~]$ <b>newgrp docker</b>
+[jegan@tektutor ~]$ <b>id</b>
 uid=1000(jegan) gid=981(docker) groups=981(docker),1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
-[jegan@tektutor ~]$ docker images
+[jegan@tektutor ~]$ <b>docker images</b>
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 </pre>
 
@@ -440,7 +440,7 @@ docker info
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker info
+[jegan@tektutor ~]$ <b>docker info</b>
 Client:
  Context:    default
  Debug Mode: false
@@ -558,7 +558,7 @@ docker image inspect hello-world:latest
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker image inspect hello-world:latest 
+[jegan@tektutor ~]$ <b>docker image inspect hello-world:latest</b>
 [
     {
         "Id": "sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412",
@@ -1000,13 +1000,13 @@ docker network inspect my-network-1
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker network ls
+[jegan@tektutor ~]$ <b>docker network ls</b>
 NETWORK ID     NAME           DRIVER    SCOPE
 416244ff5231   bridge         bridge    local
 ab0f9d816329   host           host      local
 566b5aa8d903   my-network-1   bridge    local
 3cc6698f929e   none           null      local
-[jegan@tektutor ~]$ docker network inspect my-network-1
+[jegan@tektutor ~]$ <b>docker network inspect my-network-1</b>
 [
     {
         "Name": "my-network-1",
@@ -1038,15 +1038,17 @@ ab0f9d816329   host           host      local
 ]
 </pre>
 
-## Creating a container and attaching that container to our custom network
+## Creating a container and attaching that container to our custom network, finding its IP Address
 ```
+docker run -dit --name ubuntu2 --hostname ubuntu2 --network=my-network-1 ubuntu:16.04 /bin/bash
+docker inspect ubuntu2 | grep IPA
 ```
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker run -dit --name ubuntu2 --hostname ubuntu2 --network=my-network-1 ubuntu:16.04 /bin/bash
+[jegan@tektutor ~]$ <b>docker run -dit --name ubuntu2 --hostname ubuntu2 --network=my-network-1 ubuntu:16.04 /bin/bash</b>
 33474534ad7c32796b157458be51d9479339c2fd24a895f20d1425350d4ce2a8
-[jegan@tektutor ~]$ docker inspect ubuntu2 | grep IPA
+[jegan@tektutor ~]$ <b>docker inspect ubuntu2 | grep IPA</b>
             "SecondaryIPAddresses": null,
             "IPAddress": "",
                     "IPAMConfig": null,
