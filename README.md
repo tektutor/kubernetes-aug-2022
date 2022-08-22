@@ -80,10 +80,10 @@
 ![Docker Architecture](DockerHighLevelArchitecture.png)
 
 ## Docker Image Layers
-![Docker Image Layers](DockerLayers.png.png)
+![Docker Image Layers](DockerLayers.png)
 
 
-RedHat OpenShift
+## RedHat OpenShift
 - RedHat's distribution of Kubernetes with many additional features
 - is not just an orchestration platform
 - it also supports CI/CD
@@ -91,7 +91,7 @@ RedHat OpenShift
 - kube-virt you can also scale up/down additional nodes(servers - virtual machine)
 
 
-Microservice
+## Microservice
  - NodeJS application with Postgres Database
  - one pod that runs NodeJS application
  - another pod that runs Postgres Database
