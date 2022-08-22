@@ -175,3 +175,160 @@ Different Linux OS Distributions and Package Managers supports
 - is an running instance of the Container Image
 - get's it own IP address, shell, package manager and file system
 - typically has the application and its dependent libraries
+
+
+# Installing Docker
+
+For detailed instructions, please refer https://docs.docker.com/engine/install/centos/
+
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker --version
+bash: docker: command not found...
+[jegan@tektutor ~]$ kubectl
+bash: kubectl: command not found...
+[jegan@tektutor ~]$ sudo yum install -y yum-utils
+[sudo] password for jegan: 
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nxtgen.com
+ * extras: mirrors.nxtgen.com
+ * updates: mirrors.nxtgen.com
+Package yum-utils-1.1.31-54.el7_8.noarch already installed and latest version
+Nothing to do
+[jegan@tektutor ~]$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+Loaded plugins: fastestmirror, langpacks
+adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
+grabbing file https://download.docker.com/linux/centos/docker-ce.repo to /etc/yum.repos.d/docker-ce.repo
+repo saved to /etc/yum.repos.d/docker-ce.repo
+[jegan@tektutor ~]$ sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nxtgen.com
+ * extras: mirrors.nxtgen.com
+ * updates: mirrors.nxtgen.com
+docker-ce-stable                                                              | 3.5 kB  00:00:00     
+(1/2): docker-ce-stable/7/x86_64/updateinfo                                   |   55 B  00:00:00     
+(2/2): docker-ce-stable/7/x86_64/primary_db                                   |  80 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package containerd.io.x86_64 0:1.6.7-3.1.el7 will be installed
+--> Processing Dependency: container-selinux >= 2:2.74 for package: containerd.io-1.6.7-3.1.el7.x86_64
+---> Package docker-ce.x86_64 3:20.10.17-3.el7 will be installed
+--> Processing Dependency: docker-ce-rootless-extras for package: 3:docker-ce-20.10.17-3.el7.x86_64
+---> Package docker-ce-cli.x86_64 1:20.10.17-3.el7 will be installed
+--> Processing Dependency: docker-scan-plugin(x86-64) for package: 1:docker-ce-cli-20.10.17-3.el7.x86_64
+---> Package docker-compose-plugin.x86_64 0:2.6.0-3.el7 will be installed
+--> Running transaction check
+---> Package container-selinux.noarch 2:2.119.2-1.911c772.el7_8 will be installed
+---> Package docker-ce-rootless-extras.x86_64 0:20.10.17-3.el7 will be installed
+--> Processing Dependency: fuse-overlayfs >= 0.7 for package: docker-ce-rootless-extras-20.10.17-3.el7.x86_64
+--> Processing Dependency: slirp4netns >= 0.4 for package: docker-ce-rootless-extras-20.10.17-3.el7.x86_64
+---> Package docker-scan-plugin.x86_64 0:0.17.0-3.el7 will be installed
+--> Running transaction check
+---> Package fuse-overlayfs.x86_64 0:0.7.2-6.el7_8 will be installed
+--> Processing Dependency: libfuse3.so.3(FUSE_3.2)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3(FUSE_3.0)(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+--> Processing Dependency: libfuse3.so.3()(64bit) for package: fuse-overlayfs-0.7.2-6.el7_8.x86_64
+---> Package slirp4netns.x86_64 0:0.4.3-4.el7_8 will be installed
+--> Running transaction check
+---> Package fuse3-libs.x86_64 0:3.6.1-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=====================================================================================================
+ Package                       Arch       Version                         Repository            Size
+=====================================================================================================
+Installing:
+ containerd.io                 x86_64     1.6.7-3.1.el7                   docker-ce-stable      33 M
+ docker-ce                     x86_64     3:20.10.17-3.el7                docker-ce-stable      22 M
+ docker-ce-cli                 x86_64     1:20.10.17-3.el7                docker-ce-stable      29 M
+ docker-compose-plugin         x86_64     2.6.0-3.el7                     docker-ce-stable     7.0 M
+Installing for dependencies:
+ container-selinux             noarch     2:2.119.2-1.911c772.el7_8       extras                40 k
+ docker-ce-rootless-extras     x86_64     20.10.17-3.el7                  docker-ce-stable     8.2 M
+ docker-scan-plugin            x86_64     0.17.0-3.el7                    docker-ce-stable     3.7 M
+ fuse-overlayfs                x86_64     0.7.2-6.el7_8                   extras                54 k
+ fuse3-libs                    x86_64     3.6.1-4.el7                     extras                82 k
+ slirp4netns                   x86_64     0.4.3-4.el7_8                   extras                81 k
+
+Transaction Summary
+=====================================================================================================
+Install  4 Packages (+6 Dependent packages)
+
+Total download size: 104 M
+Installed size: 419 M
+Is this ok [y/d/N]: y
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/extras/packages/container-selinux-2.119.2-1.911c772.el7_8.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for container-selinux-2.119.2-1.911c772.el7_8.noarch.rpm is not installed
+(1/10): container-selinux-2.119.2-1.911c772.el7_8.noarch.rpm                  |  40 kB  00:00:00     
+warning: /var/cache/yum/x86_64/7/docker-ce-stable/packages/docker-ce-20.10.17-3.el7.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 621e9f35: NOKEY
+Public key for docker-ce-20.10.17-3.el7.x86_64.rpm is not installed
+(2/10): docker-ce-20.10.17-3.el7.x86_64.rpm                                                       |  22 MB  00:00:04     
+(3/10): docker-ce-cli-20.10.17-3.el7.x86_64.rpm                                                   |  29 MB  00:00:04     
+(4/10): docker-ce-rootless-extras-20.10.17-3.el7.x86_64.rpm                                       | 8.2 MB  00:00:01     
+(5/10): containerd.io-1.6.7-3.1.el7.x86_64.rpm                                                    |  33 MB  00:00:11     
+(6/10): fuse-overlayfs-0.7.2-6.el7_8.x86_64.rpm                                                   |  54 kB  00:00:00     
+(7/10): slirp4netns-0.4.3-4.el7_8.x86_64.rpm                                                      |  81 kB  00:00:00     
+(8/10): docker-compose-plugin-2.6.0-3.el7.x86_64.rpm                                              | 7.0 MB  00:00:01     
+(9/10): fuse3-libs-3.6.1-4.el7.x86_64.rpm                                                         |  82 kB  00:00:00     
+(10/10): docker-scan-plugin-0.17.0-3.el7.x86_64.rpm                                               | 3.7 MB  00:00:00     
+-------------------------------------------------------------------------------------------------------------------------
+Total                                                                                    8.5 MB/s | 104 MB  00:00:12     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-9.2009.0.el7.centos.x86_64 (@anaconda)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Is this ok [y/N]: y
+Retrieving key from https://download.docker.com/linux/centos/gpg
+Importing GPG key 0x621E9F35:
+ Userid     : "Docker Release (CE rpm) <docker@docker.com>"
+ Fingerprint: 060a 61c5 1b55 8a7f 742b 77aa c52f eb6b 621e 9f35
+ From       : https://download.docker.com/linux/centos/gpg
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : docker-scan-plugin-0.17.0-3.el7.x86_64                                                               1/10 
+  Installing : 1:docker-ce-cli-20.10.17-3.el7.x86_64                                                                2/10 
+  Installing : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch                                                   3/10 
+  Installing : containerd.io-1.6.7-3.1.el7.x86_64                                                                                      4/10 
+  Installing : slirp4netns-0.4.3-4.el7_8.x86_64                                                                                        5/10 
+  Installing : fuse3-libs-3.6.1-4.el7.x86_64                                                                                           6/10 
+  Installing : fuse-overlayfs-0.7.2-6.el7_8.x86_64                                                                                     7/10 
+  Installing : 3:docker-ce-20.10.17-3.el7.x86_64                                                                                       8/10 
+  Installing : docker-ce-rootless-extras-20.10.17-3.el7.x86_64                                                                         9/10 
+  Installing : docker-compose-plugin-2.6.0-3.el7.x86_64                                                                               10/10 
+  Verifying  : fuse3-libs-3.6.1-4.el7.x86_64                                                                                           1/10 
+  Verifying  : docker-ce-rootless-extras-20.10.17-3.el7.x86_64                                                                         2/10 
+  Verifying  : 1:docker-ce-cli-20.10.17-3.el7.x86_64                                                                                   3/10 
+  Verifying  : containerd.io-1.6.7-3.1.el7.x86_64                                                                                      4/10 
+  Verifying  : slirp4netns-0.4.3-4.el7_8.x86_64                                                                                        5/10 
+  Verifying  : 2:container-selinux-2.119.2-1.911c772.el7_8.noarch                                                                      6/10 
+  Verifying  : 3:docker-ce-20.10.17-3.el7.x86_64                                                                                       7/10 
+  Verifying  : docker-scan-plugin-0.17.0-3.el7.x86_64                                                                                  8/10 
+  Verifying  : fuse-overlayfs-0.7.2-6.el7_8.x86_64                                                                                     9/10 
+  Verifying  : docker-compose-plugin-2.6.0-3.el7.x86_64                                                                               10/10 
+
+Installed:
+  containerd.io.x86_64 0:1.6.7-3.1.el7               docker-ce.x86_64 3:20.10.17-3.el7         docker-ce-cli.x86_64 1:20.10.17-3.el7        
+  docker-compose-plugin.x86_64 0:2.6.0-3.el7        
+
+Dependency Installed:
+  container-selinux.noarch 2:2.119.2-1.911c772.el7_8                    docker-ce-rootless-extras.x86_64 0:20.10.17-3.el7                   
+  docker-scan-plugin.x86_64 0:0.17.0-3.el7                              fuse-overlayfs.x86_64 0:0.7.2-6.el7_8                               
+  fuse3-libs.x86_64 0:3.6.1-4.el7                                       slirp4netns.x86_64 0:0.4.3-4.el7_8                                  
+
+Complete!
+</pre>
