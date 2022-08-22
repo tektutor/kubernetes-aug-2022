@@ -1,3 +1,24 @@
+# My medium blogs
+<pre>
+https://medium.com/tektutor
+</pre>
+
+# My YouTube channel
+<pre>
+https://www.youtube.com/c/JeganathanSwaminathan/videos
+</pre>
+
+# You might be interested in the below blogs
+<pre>
+https://medium.com/@jegan_50867/docker-commands-ba19387383b4
+
+https://medium.com/@jegan_50867/docker-overview-be840f727b3
+
+https://medium.com/tektutor/container-engine-vs-container-runtime-667a99042f3
+
+https://medium.com/tektutor/kubernetes-3-node-cluster-setup-50943378be41
+</pre>
+
 # High Availability (HA)
 - is difficult or expensive in case of Monothilic applications
 - they are cheaper in case of Microservice applications
