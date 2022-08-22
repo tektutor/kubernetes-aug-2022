@@ -1073,6 +1073,8 @@ root@ubuntu1:/# <b>hostname -i</b>
 </pre>
 
 ## Installing softwares inside a container just like we install softwars in Ubuntu VM/OS
+
+In the command below, ubuntu1 is the container name.
 ```
 docker exec -it ubuntu1 /bin/bash
 apt update
