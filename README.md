@@ -45,6 +45,9 @@
     - each virtual machine( Guest OS) requires dedicated hardware resources
        - they need dedicated CPU, RAM and storage
 
+## Virtualization High Level Architecture
+![Archtecture](HypervisorHighLevelArchitecture.png)
+
 # Docker Overview
 - a container technology
 - developed by Docker Inc organization
