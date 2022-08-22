@@ -353,3 +353,41 @@ Expected output
 [jegan@tektutor ~]$ <b>docker images</b>
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 </pre>
+
+## Starting the Docker server daemon
+```
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>sudo systemctl enable docker</b>
+[sudo] password for jegan: 
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
+[jegan@tektutor ~]$ <b>sudo systemctl start docker</b>
+[jegan@tektutor ~]$ <b>sudo systemctl status docker</b>
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2022-08-22 02:02:45 PDT; 3s ago
+     Docs: https://docs.docker.com
+ Main PID: 61106 (dockerd)
+    Tasks: 9
+   Memory: 36.3M
+   CGroup: /system.slice/docker.service
+           └─61106 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Aug 22 02:02:44 tektutor.org dockerd[61106]: time="2022-08-22T02:02:44.085019342-07:00" level=info msg="ccResolve...=grpc
+Aug 22 02:02:44 tektutor.org dockerd[61106]: time="2022-08-22T02:02:44.085119207-07:00" level=info msg="ClientCon...=grpc
+Aug 22 02:02:44 tektutor.org dockerd[61106]: time="2022-08-22T02:02:44.118194019-07:00" level=info msg="Loading c...art."
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.440720656-07:00" level=info msg="Default b...ress"
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.646307670-07:00" level=info msg="Firewalld...ning"
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.884085080-07:00" level=info msg="Loading c...one."
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.929330766-07:00" level=info msg="Docker da...10.17
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.929715135-07:00" level=info msg="Daemon ha...tion"
+Aug 22 02:02:45 tektutor.org systemd[1]: Started Docker Application Container Engine.
+Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.989156586-07:00" level=info msg="API liste...sock"
+Hint: Some lines were ellipsized, use -l to show in full.
+</pre>
+
