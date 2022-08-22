@@ -973,3 +973,82 @@ Expected output
     }
 ]
 </pre>
+
+
+## Creating a custom network with a custom subnet address
+```
+docker network create my-network-1 --subnet=192.200.255.0/24
+docker network ls
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker network create my-network-1 --subnet=192.200.255.0/24</b>
+566b5aa8d9039ff5a802dcd74e78c24ab84f11b8c4aaaa95458384a30fdf6934
+[jegan@tektutor ~]$ <b>docker network ls</b>
+NETWORK ID     NAME           DRIVER    SCOPE
+416244ff5231   bridge         bridge    local
+ab0f9d816329   host           host      local
+566b5aa8d903   my-network-1   bridge    local
+3cc6698f929e   none           null      local
+</pre>
+
+## Inspecting our custom network to find more details
+```
+docker network inspect my-network-1
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker network ls
+NETWORK ID     NAME           DRIVER    SCOPE
+416244ff5231   bridge         bridge    local
+ab0f9d816329   host           host      local
+566b5aa8d903   my-network-1   bridge    local
+3cc6698f929e   none           null      local
+[jegan@tektutor ~]$ docker network inspect my-network-1
+[
+    {
+        "Name": "my-network-1",
+        "Id": "566b5aa8d9039ff5a802dcd74e78c24ab84f11b8c4aaaa95458384a30fdf6934",
+        "Created": "2022-08-22T04:36:23.878896167-07:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "192.200.255.0/24"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+</pre>
+
+## Creating a container and attaching that container to our custom network
+```
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker run -dit --name ubuntu2 --hostname ubuntu2 --network=my-network-1 ubuntu:16.04 /bin/bash
+33474534ad7c32796b157458be51d9479339c2fd24a895f20d1425350d4ce2a8
+[jegan@tektutor ~]$ docker inspect ubuntu2 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "",
+                    "IPAMConfig": null,
+                    "IPAddress": "192.200.255.2",
+</pre>
