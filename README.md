@@ -907,4 +907,69 @@ Expected output
 ]
 </pre>
 
+## Listing networks supported by docker
+```
+docker network ls
+```
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker network ls</b>
+NETWORK ID     NAME      DRIVER    SCOPE
+416244ff5231   bridge    bridge    local
+ab0f9d816329   host      host      local
+3cc6698f929e   none      null      local
+</pre>
 
+## Inspecting docker bridge network
+```
+docker network inspect bridge
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker network inspect bridge</b>
+[
+    {
+        "Name": "bridge",
+        "Id": "416244ff523183a048ef390912399710b3d7b0724073dff3e1f9039b650dbf0f",
+        "Created": "2022-08-22T02:02:45.440808978-07:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "a26ad7017979136a0ea0871f390c5547834a9298f91a3339bc5d71b99ccb701f": {
+                "Name": "ubuntu1",
+                "EndpointID": "f16e78288ebd7a430e495db07fa3dc7f3c3390444626116d503416afc25f7a86",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+</pre>
