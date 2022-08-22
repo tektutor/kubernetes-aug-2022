@@ -330,3 +330,15 @@ Dependency Installed:
 
 Complete!
 </pre>
+
+
+## Checking docker version
+```
+docker --version
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker --version</b>
+Docker version 20.10.17, build 100c701
+</pre>
