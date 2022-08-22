@@ -90,3 +90,35 @@ Microservice
  - one pod that runs NodeJS application
  - another pod that runs Postgres Database
  - put togeteher nodejs Pod ( NodeJS appl)  + Postgres Pod (DB) => Single Microservice ( multi-pod microservice )
+
+
+# Agile
+  - a concept , a way of working which helps you get frequent feedback from customer
+  - SCRUM/Kanban/XP is an Agile Framework
+  - alternate to waterfall framework
+  - fail-fast software development approach that helps us in getting frequent feedback from customer
+
+# DevOps
+- automated process to build, test and release the product to customer with confidence
+- Organization that follow SCRUM or any Agile Framework like Kanban will follow DevOps as their engineering practice
+- DevOps Tools
+  Version Control Softwares ( Source Control)
+    - Git/GitHub
+    - Perforce
+    - Clear Case
+  Build tools
+    - Make
+    - Ant, Maven/Gradle
+  Containerization
+    - Docker
+    - Podman
+  Orchestration Platforms
+    - Google Kubernetes
+    - RedHat OpenShift
+    - Docker Sward
+  CI/CD Servers
+    - Jenkins
+    - Bamboo
+    - TeamCity
+    - Microsoft TFS(TEam Foundation Server)
+  
