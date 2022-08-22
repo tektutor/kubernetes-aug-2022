@@ -121,4 +121,58 @@ Microservice
     - Bamboo
     - TeamCity
     - Microsoft TFS(TEam Foundation Server)
-  
+    
+    
+# Hypervisor
+- refers to Virtualization technology
+- Vendor specific Hypervisor tools
+  Redhat
+    - kvm (Kernel Virtual Machine) - Type 2
+    - free for personal & commercial use
+    - extremely efficient in terms of Performace as it is tightly integrated with Kernel
+  VMWare
+     - vSphere - Commercial Product ( Type 1 )
+     - Workstation (Linux,Windows & Mac) - Commercial Product (Type 2 )
+     - Fusion(Mac) - Paid software (Type 2)
+  Microsoft
+     - Hyper-V ( Microsoft Windows Pro 10 & all latest Server grade OS )
+  Oracle
+     - VirtualBox ( Free, works in Windows, Linux and Mac )
+  Parallels(Mac)
+     - Paid software
+- comes in two flavors
+  1. Type 1 (Bare Metal Hypervisors - Used in Servers/Workstations )
+  2. Type 2 (Used in Laptops/Desktops/Workstations )
+
+
+## Containers
+- application process
+- one application per container is the recommended practice
+- typically also supports shell prompt ( bash or sh, etc )
+- each container get's an IP address 
+- each container has a file system
+- each container has a separate copy of Network Stack ( 7 OSI Layers )
+    - hence every container has a software defined network card
+- doesn't have its own OS kernel as it is not an Operating System
+
+Different Linux OS Distributions and Package Managers supports
+- Ubuntu Linux Distribution
+    - it supports a package manager called apt(apt-get)
+-  RedHat CentOS/RHEL Linux Distribution
+    - it supports a package manager called yum or rpm
+
+# Container Image
+- is a blueprint of a container
+- using a single Container Image, one can create any number of containers
+- software tools can be installed in an Image, when containers are created it will
+  have all the software that are pre-installed in the image
+- this is similar to VMWare image or iso 
+- except that it is not a OS image
+- has some package manager
+  - helps in installing/uninstalling/upgrading software within a Linux distribution
+
+# Container
+- is an running instance of the Container Image
+- get's it own IP address, shell, package manager and file system
+- typically has the application and its dependent libraries
+
