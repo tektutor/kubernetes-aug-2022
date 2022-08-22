@@ -76,6 +76,12 @@
 - Operators
    - You have ready-made or you can create custom operators that can create a cluster of DB Servers that can synchronize data
 
+## Docker High-level architecture
+![Docker Architecture](DockerHighLevelArchitecture.png)
+
+## Docker Image Layers
+![Docker Image Layers](DockerLayers.png.png)
+
 
 RedHat OpenShift
 - RedHat's distribution of Kubernetes with many additional features
