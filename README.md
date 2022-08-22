@@ -391,3 +391,36 @@ Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.989156586
 Hint: Some lines were ellipsized, use -l to show in full.
 </pre>
 
+## Try listing images
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker images</b>
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
+</pre>
+
+## Troubleshooting Docker permission denied error
+```
+docker images
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker images
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
+[jegan@tektutor ~]$ id
+uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[jegan@tektutor ~]$ sudo usermod -aG docker jegan
+[sudo] password for jegan: 
+[jegan@tektutor ~]$ id
+uid=1000(jegan) gid=1000(jegan) groups=1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[jegan@tektutor ~]$ newgrp docker
+[jegan@tektutor ~]$ id
+uid=1000(jegan) gid=981(docker) groups=981(docker),1000(jegan) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[jegan@tektutor ~]$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+</pre>
+
