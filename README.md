@@ -175,4 +175,3 @@ Different Linux OS Distributions and Package Managers supports
 - is an running instance of the Container Image
 - get's it own IP address, shell, package manager and file system
 - typically has the application and its dependent libraries
-
