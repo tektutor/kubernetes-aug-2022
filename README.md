@@ -672,3 +672,32 @@ docker run hello-world:latest
 docker ps
 ```
 
+## Creating an ubuntu container in background mode
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+docker images
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash</b>
+Unable to find image 'ubuntu:16.04' locally
+16.04: Pulling from library/ubuntu
+58690f9b18fc: Pull complete 
+b51569e7c507: Pull complete 
+da8ef40b9eca: Pull complete 
+fb15d46c38dc: Pull complete 
+Digest: sha256:91bd29a464fdabfcf44e29e1f2a5f213c6dfa750b6290e40dd6998ac79da3c41
+Status: Downloaded newer image for ubuntu:16.04
+a26ad7017979136a0ea0871f390c5547834a9298f91a3339bc5d71b99ccb701f
+[jegan@tektutor ~]$ <b>docker images</b>
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+mysql        5.7       3147495b3a5c   3 weeks ago     431MB
+<b>ubuntu       16.04     b6f507652425   11 months ago   135MB</b>
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS          PORTS     NAMES
+a26ad7017979   ubuntu:16.04   "/bin/bash"   40 seconds ago   Up 38 seconds             ubuntu1
+</pre>
+
+
