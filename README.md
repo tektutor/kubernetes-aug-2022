@@ -648,6 +648,20 @@ Expected output
 ]
 </pre>
 
+## Deleting an image from Local Docker Registry
+```
+docker rmi hello-world:latest
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker rmi hello-world:latest</b>
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:7d246653d0511db2a6b2e0436cfd0e52ac8c066000264b3ce63331ac66dca625
+Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
+Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
+</pre>
+
 ## Creating conainer from docker image
 ```
 docker run hello-world:latest
