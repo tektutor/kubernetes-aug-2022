@@ -19,7 +19,6 @@
   Message Queue
      - Server 3
 
-
 # RDBMS
 - supports ACID Properties by default
 
@@ -32,7 +31,6 @@
 - NoSQL DBs
   - Mongo DB
   - CouchBase 
-
 
 # Virtualization
 - is called as Hypevisor
@@ -47,6 +45,10 @@
 
 ## Virtualization High Level Architecture
 ![Archtecture](HypervisorHighLevelArchitecture.png)
+
+# Linux features that enables Container Technology
+1. Namespace (https://en.wikipedia.org/wiki/Linux_namespaces)
+2. Control Groups (CGroups - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/ch01) 
 
 # Docker Overview
 - a container technology
