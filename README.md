@@ -522,6 +522,35 @@ hello-world   latest    feb5d9fea6a5   11 months ago   13.3kB
 docker pull hello-world:latest
 ```
 
+## Downloading mysql container image
+```
+docker pull mysql:5.7
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker pull mysql:5.7</b>
+5.7: Pulling from library/mysql
+66fb34780033: Pull complete 
+ef4ccd63cdb4: Pull complete 
+d6f28a94c51f: Pull complete 
+7feea2a503b5: Pull complete 
+71dd5852ecd9: Pull complete 
+2ff5c3b24fd5: Pull complete 
+88a546386a61: Pull complete 
+65b18297cf83: Pull complete 
+d64f23335fb8: Pull complete 
+6ba4171261fa: Pull complete 
+96dcc6c8de93: Pull complete 
+Digest: sha256:b3a86578a582617214477d91e47e850f9e18df0b5d1644fb2d96d91a340b8972
+Status: Downloaded newer image for mysql:5.7
+docker.io/library/mysql:5.7
+[jegan@tektutor ~]$ <b>docker images</b>
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+mysql         5.7       3147495b3a5c   3 weeks ago     431MB
+hello-world   latest    feb5d9fea6a5   11 months ago   13.3kB
+</pre>
+
 ## Creating conainer from docker image
 ```
 docker run hello-world:latest
