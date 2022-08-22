@@ -1072,7 +1072,7 @@ root@ubuntu1:/# <b>hostname -i</b>
 172.17.0.2
 </pre>
 
-## Installing softwares inside a container just like we install softwars in Ubuntu VM/OS
+## Installing softwares inside a container just like we install softwares in an Ubuntu VM/OS
 
 In the command below, ubuntu1 is the container name.
 ```
