@@ -1,6 +1,6 @@
 # Day 1 - Docker
 
-## Installing Docker
+## ⛹️‍♂️ Lab - Installing Docker
 
 For detailed instructions, please refer https://docs.docker.com/engine/install/centos/
 
@@ -155,7 +155,7 @@ Complete!
 </pre>
 
 
-## Checking docker version
+## ⛹️‍♂️ Lab -  Checking docker version
 ```
 docker --version
 ```
@@ -166,7 +166,7 @@ Expected output
 Docker version 20.10.17, build 100c701
 </pre>
 
-## Issuing docker commands
+## ⛹️‍♂️ Lab -  Issuing docker commands
 ```
 docker images
 ```
@@ -177,7 +177,7 @@ Expected output
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 </pre>
 
-## Starting the Docker server daemon
+## ⛹️‍♂️ Lab -  Starting the Docker server daemon
 ```
 sudo systemctl enable docker
 sudo systemctl start docker
@@ -214,7 +214,7 @@ Aug 22 02:02:45 tektutor.org dockerd[61106]: time="2022-08-22T02:02:45.989156586
 Hint: Some lines were ellipsized, use -l to show in full.
 </pre>
 
-## Try listing images
+## ⛹️‍♂️ Lab -  Try listing images
 ```
 docker images
 ```
@@ -225,7 +225,7 @@ Expected output
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
 </pre>
 
-## Troubleshooting Docker permission denied error
+## ⛹️‍♂️ Lab -  Troubleshooting Docker permission denied error
 ```
 docker images
 ```
@@ -250,7 +250,7 @@ REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 
 # Docker Commands
 
-## Finding details about your docker installation
+## ⛹️‍♂️ Lab -  Finding details about your docker installation
 ```
 docker info
 ```
@@ -314,7 +314,7 @@ Server:
  Live Restore Enabled: false
 </pre>
 
-## Listing docker images from your local docker registry
+## ⛹️‍♂️ Lab -  Listing docker images from your local docker registry
 ```
 docker images
 ```
@@ -334,12 +334,12 @@ hello-world   latest    feb5d9fea6a5   11 months ago   13.3kB
 </pre>
 
 
-## Downloading docker image from Docker Hub to Local registry
+## ⛹️‍♂️ Lab -  Downloading docker image from Docker Hub to Local registry
 ```
 docker pull hello-world:latest
 ```
 
-## Downloading mysql container image
+## ⛹️‍♂️ Lab -  Downloading mysql container image
 ```
 docker pull mysql:5.7
 ```
@@ -368,7 +368,7 @@ mysql         5.7       3147495b3a5c   3 weeks ago     431MB
 hello-world   latest    feb5d9fea6a5   11 months ago   13.3kB
 </pre>
 
-## Finding hello-world docker image details and its layers
+## ⛹️‍♂️ Lab -  Finding hello-world docker image details and its layers
 ```
 docker image inspect hello-world:latest
 ```
@@ -465,7 +465,7 @@ Expected output
 ]
 </pre>
 
-## Deleting an image from Local Docker Registry
+## ⛹️‍♂️ Lab -  Deleting an image from Local Docker Registry
 ```
 docker rmi hello-world:latest
 ```
@@ -479,12 +479,12 @@ Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
 Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
 </pre>
 
-## Creating conainer from docker image
+## ⛹️‍♂️ Lab - Creating conainer from docker image
 ```
 docker run hello-world:latest
 ```
 
-## Listing running containers
+## ⛹️‍♂️ Lab - Listing running containers
 ```
 docker ps
 ```
@@ -518,7 +518,7 @@ a26ad7017979   ubuntu:16.04   "/bin/bash"   40 seconds ago   Up 38 seconds      
 </pre>
 
 
-## Finding details about a container
+## ⛹️‍♂️ Lab - Finding details about a container
 ```
 docker container inspect ubuntu1
 ```
@@ -724,7 +724,7 @@ Expected output
 ]
 </pre>
 
-## Listing networks supported by docker
+## ⛹️‍♂️ Lab - Listing networks supported by docker
 ```
 docker network ls
 ```
@@ -737,7 +737,7 @@ ab0f9d816329   host      host      local
 3cc6698f929e   none      null      local
 </pre>
 
-## Inspecting docker bridge network
+## ⛹️‍♂️ Lab - Inspecting docker bridge network
 ```
 docker network inspect bridge
 ```
@@ -792,7 +792,7 @@ Expected output
 </pre>
 
 
-## Creating a custom network with a custom subnet address
+## ⛹️‍♂️ Lab - Creating a custom network with a custom subnet address
 ```
 docker network create my-network-1 --subnet=192.200.255.0/24
 docker network ls
@@ -810,7 +810,7 @@ ab0f9d816329   host           host      local
 3cc6698f929e   none           null      local
 </pre>
 
-## Inspecting our custom network to find more details
+## ⛹️‍♂️ Lab - Inspecting our custom network to find more details
 ```
 docker network inspect my-network-1
 ```
@@ -855,7 +855,7 @@ ab0f9d816329   host           host      local
 ]
 </pre>
 
-## Creating a container and attaching that container to our custom network, finding its IP Address
+## ⛹️‍♂️ Lab - Creating a container and attaching that container to our custom network, finding its IP Address
 ```
 docker run -dit --name ubuntu2 --hostname ubuntu2 --network=my-network-1 ubuntu:16.04 /bin/bash
 docker inspect ubuntu2 | grep IPA
@@ -873,7 +873,7 @@ Expected output
 </pre>
 
 
-## Getting inside a container that runs in background
+## ⛹️‍♂️ Lab - Getting inside a container that runs in background
 ```
 docker exec -it ubuntu1 bash
 hostname
@@ -891,7 +891,7 @@ root@ubuntu1:/# <b>hostname -i</b>
 172.17.0.2
 </pre>
 
-## Installing softwares inside a container just like we install softwares in an Ubuntu VM/OS
+## ⛹️‍♂️ Lab - Installing softwares inside a container just like we install softwares in an Ubuntu VM/OS
 
 In the command below, ubuntu1 is the container name.
 ```
