@@ -63,4 +63,11 @@
 - Deployment supports Rolling update
    - upgrading/downgrading your live application without downtime from Kubernetes
     
+## ⛹️‍♀️ Lab - Installing a single-node Kubernetes cluster
+
+For detailed instructions please refer my medium blog
+<pre>
+https://medium.com/tektutor/kubernetes-3-node-cluster-setup-50943378be41
+</pre>
+
  
