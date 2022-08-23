@@ -1110,6 +1110,21 @@ docker rm $(docker ps -aq)
 docker rm -f $(docker ps -aq)
 ```
 
+
+## Lab - Creating a loadbalancer using nginx web server and load balancer
+```
+docker run -d --name web1 --hostname web1 nginx:latest
+docker run -d --name web2 --hostname web2 nginx:latest
+docker run -d --name web3 --hostname web3 nginx:latest
+
+docker run -d --name lb --hostname lb nginx:latest
+```
+
+Listing the containers
+```
+docker ps
+```
+
 ## Finding IP address of container
 ```
 docker inspect -f {{.NetworkSettings.IPAddress}} web1
