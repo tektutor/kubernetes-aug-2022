@@ -1143,3 +1143,48 @@ Expected output
                     "IPAMConfig": null,
                     "IPAddress": "172.17.0.4",
 </pre>
+
+
+## Configuring lb container to work like a Load Balancer
+Create a nginx.conf file with the below content
+<pre>
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    upstream servers {
+        server  172.17.0.2:80;
+        server  172.17.0.3:80;
+        server  172.17.0.4:80;
+        server  172.17.0.6:80;
+    }
+    server {
+        location / {
+            proxy_pass http://servers;
+        }
+    }
+
+}
+</pre>
+In the file above, you need to update the IP address as per your container IPs.
+<pre>
+172.17.0.2 is the IP Address of web1 container
+172.17.0.3 is the IP Address of web2 container
+172.17.0.4 is the IP Address of web3 container
+172.17.0.6 is the IP Address of web4 container
+</pre>
+
+Copy the config file into lb container and restart
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+docker restart lb
+```
+
