@@ -28,6 +28,14 @@
             - CronJob
             - StatefulSet
             - DaemonSet
+    - RedHat OpenShift ( requires license - Commercial edition )
+    - RedHat OKD ( Origin Kubernetes Distribution - Opensource )
+    - AWS EKS ( Elastic Kubernetes Service )
+        - Managed Kubernetes Service
+        - installation/maintainence of Kubernetes is taken care by AWS
+        - with few clicks, you can easily create a Kubernetes cluster in AWS
+    - Azure AKS ( Azure Kubernetes Service )
+        - managed Kubernetes Service from Azure
      
 ## What is a Pod?
 - Pod is Kubernetes resource
