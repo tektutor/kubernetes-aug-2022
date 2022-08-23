@@ -1109,3 +1109,22 @@ docker rm $(docker ps -aq)
 ```
 docker rm -f $(docker ps -aq)
 ```
+
+## Finding IP address of container
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} web1
+docker inspect web3 | grep IPA
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web1
+172.17.0.2
+[jegan@tektutor ~]$ docker inspect -f {{.NetworkSettings.IPAddress}} web2
+172.17.0.3
+[jegan@tektutor ~]$ docker inspect web3 | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.4",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.4",
+</pre>
