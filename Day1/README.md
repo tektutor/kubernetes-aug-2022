@@ -1054,14 +1054,14 @@ docker stop <your-container-id>
 
 Expected output
 <pre>
-jegan@tektutor ~]$ docker ps
+jegan@tektutor ~]$ <b>docker ps</b>
 CONTAINER ID   IMAGE          COMMAND       CREATED             STATUS             PORTS     NAMES
 33474534ad7c   ubuntu:16.04   "/bin/bash"   About an hour ago   Up About an hour             ubuntu2
 a26ad7017979   ubuntu:16.04   "/bin/bash"   2 hours ago         Up 2 hours                   ubuntu1
-[jegan@tektutor ~]$ docker stop ubuntu1
+[jegan@tektutor ~]$ <b>docker stop ubuntu1</b>
 ubuntu1
-[jegan@tektutor ~]$ docker stop 33474534ad7c
+[jegan@tektutor ~]$ <b>docker stop 33474534ad7c</b>
 33474534ad7c
-[jegan@tektutor ~]$ docker ps
+[jegan@tektutor ~]$ <b>docker ps</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 </pre>
