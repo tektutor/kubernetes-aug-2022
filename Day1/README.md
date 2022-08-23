@@ -1065,3 +1065,9 @@ ubuntu1
 [jegan@tektutor ~]$ <b>docker ps</b>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 </pre>
+
+## Deleting a running container
+```
+docker stop <container-id>
+docker stop <container-name>
+```
