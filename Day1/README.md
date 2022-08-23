@@ -1,5 +1,25 @@
 # Day 1 - Docker
 
+## You might be interested in this blog
+<pre>
+https://medium.com/me/stats/post/667a99042f3
+</pre>
+
+## Container Engine
+- Container Engines depends on Container Runtime to manage containers ( create, start, stop, restart, kill, remove )
+- Container Engines depends on Buildah/Skopea or similar tools to manage images ( build, download, remove, list, etc )
+- end-users typically use Container Engine to manage images and container with easy to use commands
+- Container Engines abstracts all the low-level kernel stuffs from the end-user
+- Examples
+    - Docker
+    - Podman
+
+## Container Runtime
+- this is the actual tool that creates and manages containers
+- Example
+    - runC is the Container Runtime used by Docker and many other Container Engines 
+    - CRI-O is the Container Runtime used by Podman 
+    
 ## ⛹️‍♂️ Lab - Installing Docker
 
 For detailed instructions, please refer https://docs.docker.com/engine/install/centos/
@@ -1066,8 +1086,26 @@ ubuntu1
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 </pre>
 
-## Deleting a running container
+## Deleting a running container graciously
 ```
-docker stop <container-id>
-docker stop <container-name>
+docker stop ubuntu1 ubuntu2
+docker rm <container-id>
+docker rm <container-name>
+```
+
+## Deleting a running container forcibly
+```
+docker rm -f ubuntu2
+```
+
+## Deleting multiple running containers graciously
+```
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+```
+
+
+## Deleting multiple running container forcibly
+```
+docker rm -f $(docker ps -aq)
 ```
