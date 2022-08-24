@@ -89,3 +89,29 @@ Expected output
 <pre>
 
 </pre>
+
+
+## What happens behind this command
+```
+kubectl create deployment nginx --image=nginx:1.18
+```
+
+<pre>
+1. kubectl will make a REST API call to API Server(Control Plane Component) running on the master node, requesting to create a deployment by name 'nginx' that uses Docker Image 'nginx:1.18' from Docker Hub.
+2. API Server, receives the request from kubectl, it then creates a YAML/JSON record in the etcd database.
+3. API Server triggers an event something like "New Deployment Created"
+4. Deployment Controller receives the event "New Deployment Created", it then makes a REST call to API Server requesting the API Server to create a ReplicaSet by name 'nginx-<pod-template-hash>'.
+5. API Server receives this request, it creates an new ReplicaSet entry in the etcd database.
+6. API Server triggers an event something like "New ReplicaSet Created"
+7. ReplicaSet Controller receives the event "New ReplicaSet Creted", it fetches the number of Pods it is supposed to create, also it retrieves the Container Image it is supposed to be using to create the Pods. 
+8. ReplicaSet Controller makes a REST call to API Server to create so many Pods as mentioned in the event with the appropriate Container Image mentioned in the event.
+9. API Server receives the request and creates so many Pod entries in the etcd database.
+10. API Server triggers an event for each Pod created in the etcd something like "New Pod Created".
+11. Scheduler receives the event, it then identifies a healthy node where those individual Pods can be deployment.
+12. Scheduler makes a REST call to API Server sending the Pod scheduling recommendations.
+13. API Server receives the scheduling recommendation from Scheduler, API Server retrieves the respective Pod entries from the etcd database, updates the Scheduling the information recommended by Scheduler.
+14. API Server triggers an event something like "Pod Scheduled on Node1", "Pod scheduled on Node2", etc.,
+15. kubelet the Kuberneter Container Agent that runs on every Node receives those events.  If the Pod is scheduled onto the node where the kubelet is running, then the kubelet with the help of the Container Runtime, pulls the image and creates the pod containers.
+16. kubelet constantly monitors the health and status of the Pod Container and keeps sending heart-beat status to API Server.
+17. API Server receives the status updates from kubelet from each nodes and it updates the Pod entries with the status information in the etcd database.
+</pre>
