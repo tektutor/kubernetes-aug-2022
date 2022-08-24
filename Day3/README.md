@@ -8,6 +8,26 @@ Listing Kubernetes nodes
 kubectl get nodes
 ```
 
+## Listing the Pods running in kube-system namespaces
+```
+kubectl get po -n kube-system
+```
+
+Expected output
+<pre>
+[jegan@localhost ~]$ kubectl get po -n kube-system
+NAME                               READY   STATUS    RESTARTS       AGE
+coredns-6d4b75cb6d-pf2sp           1/1     Running   1 (117m ago)   124m
+<b>etcd-minikube                      1/1     Running   1 (118m ago)   124m</b>
+<b>kube-apiserver-minikube            1/1     Running   1 (35m ago)    124m</b>
+<b>kube-controller-manager-minikube   1/1     Running   1 (118m ago)   124m</b>
+kube-proxy-fn5ts                   1/1     Running   1 (118m ago)   124m
+<b>kube-scheduler-minikube            1/1     Running   1 (35m ago)    124m</b>
+storage-provisioner                1/1     Running   3 (34m ago)    124m
+</pre>
+
+In the above output, the highlighted pods are the Control Plane components.
+
 ## Creating our first nginx web server deployment
 ```
 kubectl create deployment nginx --image=nginx:1.18
