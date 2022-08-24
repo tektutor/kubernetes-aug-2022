@@ -38,6 +38,26 @@ NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   1/1     1            1           2m54s
 </pre>
 
+## Listing the replicasets in default namespaces
+```
+kubectl get replicasets
+kubectl get replicaset
+kubectl get rs
+```
+
+Expected output
+<pre>
+jegan@localhost ~]$ kubectl get replicasets
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-55fb6488cb   1         1         1       5m17s
+[jegan@localhost ~]$ kubectl get replicaset
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-55fb6488cb   1         1         1       5m19s
+[jegan@localhost ~]$ kubectl get rs
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-55fb6488cb   1         1         1       5m22s
+</pre>
+
 ## Listing all pods running in default namespace
 ```
 kubectl get pods
