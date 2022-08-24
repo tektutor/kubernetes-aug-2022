@@ -262,3 +262,18 @@ Testing the LoadBalancer service
 ```
 curl http://192.168.99.100:80
 ```
+
+## What is Ingress in Kubernetes?
+
+
+### Ingress
+- a set of forwarding rules
+
+### Ingress Controller
+- Ingress controller just like other controller supports a single type of resource called Ingress
+- Ingress Controller keeps looking for Ingress rules created in Kubernetes cluster in any namespace
+- Whenever Ingress Controller detects any new Ingress, any update in existing Ingress, ingress is deleted. Ingress Controller take the ingress rules and configures the Load Balancer at runtime
+- In case of minikube, it supports Nginx Ingress Controller
+
+### Load Balancer
+- In case of minikube, we enable Nginx Load Balancer
