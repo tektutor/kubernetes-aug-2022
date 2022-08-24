@@ -18,6 +18,26 @@ Expected output
 deployment.apps/nginx created
 </pre>
 
+## Listing the deployment in default namespace
+```
+kubectl get deployments
+kubectl get deployment
+kubectl get deploy
+```
+
+Expected output
+<pre>
+[jegan@localhost ~]$ kubectl get deployments
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   1/1     1            1           2m49s
+[jegan@localhost ~]$ kubectl get deployment
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   1/1     1            1           2m51s
+[jegan@localhost ~]$ kubectl get deploy
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   1/1     1            1           2m54s
+</pre>
+
 ## Listing all pods running in default namespace
 ```
 kubectl get pods
