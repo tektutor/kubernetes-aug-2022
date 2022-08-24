@@ -123,7 +123,7 @@ kubectl scale deploy/nginx --replicas=3
 
 ## Creating a ClusterIP Internal service
 ```
-kubectl expose deploy/svc --type=ClusterIP --port=80
+kubectl expose deploy/nginx --type=ClusterIP --port=80
 ```
 
 Listing the service
