@@ -137,3 +137,31 @@ Finding more details about a service
 ```
 kubeclt describe svc/nginx
 ```
+
+## Deleting a pod
+
+List the pod
+```
+kubectl get po
+```
+
+Delete a pod
+```
+kubectl delete pod/<your-pod-name>
+```
+
+## Deleting a deployment
+Listing a deployment
+```
+kubectl get deploy
+```
+
+Delete a deployment
+```
+kubectl delete deploy/<your-deployment-name>
+```
+
+## Deleting a Replicaset
+```
+kubectl delete rs/<your-resplicaset-name>
+```
