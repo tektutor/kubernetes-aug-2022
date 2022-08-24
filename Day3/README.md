@@ -115,3 +115,25 @@ kubectl create deployment nginx --image=nginx:1.18
 16. kubelet constantly monitors the health and status of the Pod Container and keeps sending heart-beat status to API Server.
 17. API Server receives the status updates from kubelet from each nodes and it updates the Pod entries with the status information in the etcd database.
 </pre>
+
+## Scaling up a deployment
+```
+kubectl scale deploy/nginx --replicas=3
+```
+
+## Creating a ClusterIP Internal service
+```
+kubectl expose deploy/svc --type=ClusterIP --port=80
+```
+
+Listing the service
+```
+kubectl get services
+kubectl get service
+kubectl get svc
+```
+
+Finding more details about a service
+```
+kubeclt describe svc/nginx
+```
