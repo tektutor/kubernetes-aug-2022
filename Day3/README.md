@@ -244,3 +244,21 @@ Enable Metallb add-on in minikube
 🌟  The 'metallb' addon is enabled
 </pre>
 
+Configure Metallb add-on in minikube
+<pre>
+[jegan@localhost ~]$ minikube addons configure metallb
+-- Enter Load Balancer Start IP: 192.168.99.100
+-- Enter Load Balancer End IP: 192.168.99.110
+    ▪ Using image metallb/speaker:v0.9.6
+    ▪ Using image metallb/controller:v0.9.6
+✅  metallb was successfully configured
+[jegan@localhost ~]$ kubectl get svc
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)        AGE
+kubernetes   ClusterIP      10.96.0.1       <none>           443/TCP        4h43m
+nginx        LoadBalancer   10.100.88.236   192.168.99.100   80:30156/TCP   10m
+</pre>
+
+Testing the LoadBalancer service
+```
+curl http://192.168.99.100:80
+```
